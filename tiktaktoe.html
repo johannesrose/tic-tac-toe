@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTakTo</title>
+    <link rel="stylesheet" href="tiktaktoe.css">
+</head>
+<body>
+<div class="ue">
+   <h1>TikTakToe</h1>
+</div> 
+
+<div class="punkte">
+    <h2 id="winsSpieler">Punkte Spieler</h2>
+    <h2 id="winsCPU">Punkte CPU</h2>
+
+</div>
+
+<div class="row">
+    <button class="btn" id="00" onclick="spielfeldAuswahl(0,0)"></button>
+    <button class="btn" id="01" onclick="spielfeldAuswahl(0,1)"></button>
+    <button class="btn" id="02" onclick="spielfeldAuswahl(0,2)"></button>
+</div>
+<div class="row">
+    <button class="btn" id="10" onclick="spielfeldAuswahl(1,0)"></button>
+    <button class="btn" id="11" onclick="spielfeldAuswahl(1,1)"></button>
+    <button class="btn" id="12" onclick="spielfeldAuswahl(1,2)"></button>
+</div>
+<div class="row">
+    <button class="btn" id="20" onclick="spielfeldAuswahl(2,0)"></button>
+    <button class="btn" id="21" onclick="spielfeldAuswahl(2,1)"></button>
+    <button class="btn" id="22" onclick="spielfeldAuswahl(2,2)"></button>
+</div>
+   
+<div class="frage">
+    <h2 >Wer dran ist:</h2>
+</div>  
+<div class="frage">
+    <h2 id="aktuelerSpieler"></h2>
+</div>  
+<div class="frage">
+    <h2 id="welcherSpieler">Mit was möchtest du spielen ?</h2>
+</div>  
+
+ <div class="row">
+    <button class="btn" onclick="spielerAuswahl('x')" id="spieler_x">X</button>
+    <button class="btn" onclick="spielerAuswahl('o')" id="spieler_o">O</button>
+ </div>  
+ <div class="row">
+    <button class="btn1" onclick="neueRunde()" id="neueRunde">Neue Runde starten</button>
+ </div>  
+   
+   
+    <script src="tiktaktoe.js"></script>
+</body>
+</html>
