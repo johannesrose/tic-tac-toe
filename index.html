@@ -12,10 +12,14 @@
    <h1>TikTakToe</h1>
 </div> 
 
-<div class="punkte">
-    <h2 id="winsSpieler">Punkte Spieler</h2>
-    <h2 id="winsCPU">Punkte CPU</h2>
+<div class="row">
+    <button class="btn1" onclick="neueRunde()" id="neueRunde">Neue Runde starten</button>
+ </div>  
 
+
+<div class="punkte">
+    <h2 id="winsSpielerX">Punkte X</h2>
+    <h2 id="winsSpielerO">Punkte O</h2>
 </div>
 
 <div class="row">
@@ -48,10 +52,10 @@
     <button class="btn" onclick="spielerAuswahl('x')" id="spieler_x">X</button>
     <button class="btn" onclick="spielerAuswahl('o')" id="spieler_o">O</button>
  </div>  
+
  <div class="row">
-    <button class="btn1" onclick="neueRunde()" id="neueRunde">Neue Runde starten</button>
+    <button class="btn1" onclick="neuStart()" >Neustart</button>
  </div>  
-   
    
     <script src="tiktaktoe.js"></script>
 </body>

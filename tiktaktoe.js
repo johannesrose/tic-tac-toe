@@ -7,9 +7,8 @@ let spieler1 =""
 let spielerCPU = ""
 let anzahlX = 0;
 let anzahlO = 0;
-let winSpieler = 0;
-let winSpielerCPU = 0;
-
+let winSpielerX = 0;
+let winSpielerO = 0;
 
 let spielfeld = [["•","•","•"],
                  ["•","•","•"],
@@ -31,9 +30,11 @@ function spielerAuswahl(auswahl) {
 }
 
 function spielfeldAuswahl(x,y) {
-
     if (spielfeld[x][y] == "x" || spielfeld[x][y] == "o"){
         alert("Diese Feld ist bereits belegt")      
+    }
+    else if (momentanerSpieler==""){
+        alert("Bitte wähle x oder o aus!")
     }
     else{
         document.getElementById(String(x)+String(y)).innerText= momentanerSpieler;
@@ -56,25 +57,24 @@ function spielfeldAuswahl(x,y) {
         quer2()
 }
 
-
 function linkeNachRechts(q){
     anzahlX = 0;
     anzahlO = 0;
     //Prüfe links nach rechts
     for (let i = 0; i < 3; i++) {
         if (spielfeld[q][i] == "x"){
-            anzahlX++;
-            
+            anzahlX++;   
         }
         else if (spielfeld[q][i] == "o"){
             anzahlO++;}
         
         if (anzahlX == 3){
             alert("Spieler X hat gewonnen")
-            
+            winsAusgebeX()            
         }
         else if (anzahlO == 3){
             alert("Spieler O hat gewonnen")
+            winsAusgebeO()
         }
 }}
 function obenNachUnten(q){
@@ -83,20 +83,21 @@ function obenNachUnten(q){
     //Prüfe links nach rechts
     for (let i = 0; i < 3; i++) {
         if (spielfeld[i][q] == "x"){
-            anzahlX++;
-            
+            anzahlX++;     
         }
         else if (spielfeld[i][q] == "o"){
             anzahlO++;}
         
         if (anzahlX == 3){
             alert("Spieler X hat gewonnen")
+            winsAusgebeX()
+
         }
         else if (anzahlO == 3){
             alert("Spieler O hat gewonnen")
+            winsAusgebeO()
         }
 }}
-
 
 function quer1(){
     anzahlX = 0;
@@ -111,11 +112,14 @@ function quer1(){
         
         if (anzahlX == 3){
             alert("Spieler X hat gewonnen")
+            winsAusgebeX()
         }
         else if (anzahlO == 3){
             alert("Spieler O hat gewonnen")
+            winsAusgebeO()
         }
 }}
+
 function quer2(){
     anzahlX = 0;
     anzahlO = 0;
@@ -129,12 +133,11 @@ function quer2(){
         
         if (anzahlX == 3){
             alert("Spieler X hat gewonnen")
-
-            winsAusgeben()
+            winsAusgebeX()
         }
         else if (anzahlO == 3){
             alert("Spieler O hat gewonnen")
-            winsAusgeben()
+            winsAusgebeO()
         }
 }}
 
@@ -151,11 +154,32 @@ function neueRunde(){
     }
 }}
 
-function winsAusgeben(){
-   document.getElementById("winsSpieler").innerHTML = "Gewonnene Runden Spieler: </br>" + winSpieler;
-   document.getElementById("winsCPU").innerHTML = "Gewonnene Runden Spieler: </br>" + winSpielerCPU;
+function winsAusgebeX(){
+    winSpielerX++
+    document.getElementById("winsSpielerX").innerHTML = "Wins X </br>" + "<center>" + winSpielerX;
+}
+function winsAusgebeO(){
+    winSpielerO++
+    document.getElementById("winsSpielerO").innerHTML = "Wins O </br>" + "<center>" + winSpielerO;
 }
 
+function neuStart(){
+     winSpielerX = 0;
+    winSpielerO = 0;
+    
+    spielfeld = [["•","•","•"],
+    ["•","•","•"],
+    ["•","•","•"]]
+    momentanerSpieler = ""
+    document.getElementById("aktuelerSpieler").innerHTML = momentanerSpieler
+    for (let i = 0; i < spielfeldID.length; i++) {
+        const element = document.getElementById(spielfeldID[i]);
+        if (element) {
+            element.innerHTML = "";
+    }
+    document.getElementById("winsSpielerX").innerHTML = "Wins Spieler </br>" + "<center>" + winSpielerX;
+    document.getElementById("winsSpielerO").innerHTML = "Wins Spieler </br>" + "<center>" + winSpielerO;
 
-
+}
+}
 
